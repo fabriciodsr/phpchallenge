@@ -81,7 +81,7 @@ Get the name of the container which contains "app", like `myapp_app_1` and execu
 docker exec -ti myapp_app_1 /bin/sh
 ```
 
-Now you can use the **php artisan** with the following command to generate de database:
+Now you can use the **php artisan** with the following command to generate the database:
 ```
 php artisan doctrine:schema:create
 ```
