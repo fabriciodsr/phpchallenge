@@ -1,0 +1,711 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>PHPChallenge - API Documentation - S2IT - Fabricio Rodrigues</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/all.js"></script>
+
+
+          <script>
+        $(function() {
+            setupLanguages(["bash","javascript"]);
+        });
+      </script>
+      </head>
+
+  <body class="">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        <a href="/">
+            <img src="../images/PHPChallengeS2IT.png" style="width: 90%"/>
+        </a>
+                    <div class="lang-selector">
+                                  <a href="#" data-language-name="bash">bash</a>
+                                  <a href="#" data-language-name="javascript">javascript</a>
+                            </div>
+                            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+              <div id="toc">
+      </div>
+            </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+          <!-- START_INFO -->
+<h1>Information</h1>
+<p>Welcome to the API Documentation.
+<!-- END_INFO -->
+<h1>Order</h1>
+<p>Allows you to get order info from persons</p>
+<!-- START_d330c6fd26b85716d20107e9010c493a -->
+<h2>Get all orders</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Allows you to get a list of all orders registered on the application</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/shiporder" </code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/shiporder",
+    "method": "GET",
+    "headers": {
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 1,
+    "orderid": 1,
+    "created": "02\/11\/2018 03:23:21",
+    "updated": "02\/11\/2018 05:52:41",
+    "items": "http:\/\/127.0.0.1\/api\/shipitems\/orders\/1",
+    "shipto": "http:\/\/127.0.0.1\/api\/shipto\/orders\/1",
+    "orderperson": "http:\/\/127.0.0.1\/api\/person\/1"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/shiporder</code></p>
+<!-- END_d330c6fd26b85716d20107e9010c493a -->
+<!-- START_b95d61636707e5e37af6a0df2e9cba95 -->
+<h2>Get a order by Id</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Allows you to see a order registered on the application by it's Id</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/shiporder/{orderId}" </code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/shiporder/{orderId}",
+    "method": "GET",
+    "headers": {
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 1,
+    "orderid": 1,
+    "created": "02\/11\/2018 03:23:21",
+    "updated": "02\/11\/2018 05:52:41",
+    "items": "http:\/\/127.0.0.1\/api\/shipitems\/orders\/1",
+    "shipto": "http:\/\/127.0.0.1\/api\/shipto\/orders\/1",
+    "orderperson": "http:\/\/127.0.0.1\/api\/person\/1"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/shiporder/{orderId}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shiporderId</td>
+<td>required</td>
+<td>The id of the order.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_b95d61636707e5e37af6a0df2e9cba95 -->
+<!-- START_c8d52f17e52f3a6e4457f41f8596df2d -->
+<h2>Get all orders from a person by personId</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Allows you to see all orders from a person registered on the application by personId</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/shiporder/person/{personId}" </code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/shiporder/person/{personId}",
+    "method": "GET",
+    "headers": {
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 1,
+    "orderid": 1,
+    "created": "02\/11\/2018 03:23:21",
+    "updated": "02\/11\/2018 05:52:41",
+    "items": "http:\/\/127.0.0.1\/api\/shipitems\/orders\/1",
+    "shipto": "http:\/\/127.0.0.1\/api\/shipto\/orders\/1",
+    "orderperson": "http:\/\/127.0.0.1\/api\/person\/1"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/shiporder/person/{personId}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>personId</td>
+<td>required</td>
+<td>The id of the person.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_c8d52f17e52f3a6e4457f41f8596df2d -->
+<h1>Order Items</h1>
+<p>Allows you to get item info from orders</p>
+<!-- START_993c19ee4635b1c56944eac43bc5df6d -->
+<h2>Get all items</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Allows you to get a list of all items registered on the application</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/shipitems" </code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/shipitems",
+    "method": "GET",
+    "headers": {
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 1,
+    "title": "Title 1",
+    "note": "Note 1",
+    "quantity": 745,
+    "price": "123.45",
+    "created": "02\/11\/2018 03:23:21",
+    "updated": "02\/11\/2018 05:52:41",
+    "shiporder": "http:\/\/127.0.0.1\/api\/shiporder\/1"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/shipitems</code></p>
+<!-- END_993c19ee4635b1c56944eac43bc5df6d -->
+<!-- START_5b78ba599694ae99d8d42c8ccd7c21e3 -->
+<h2>Get a item by Id</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Allows you to see a item registered on the application by it's Id</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/shipitems/{shipitemId}" </code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/shipitems/{shipitemId}",
+    "method": "GET",
+    "headers": {
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 1,
+    "title": "Title 1",
+    "note": "Note 1",
+    "quantity": 745,
+    "price": "123.45",
+    "created": "02\/11\/2018 03:23:21",
+    "updated": "02\/11\/2018 05:52:41",
+    "shiporder": "http:\/\/127.0.0.1\/api\/shiporder\/1"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/shipitems/{shipitemId}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shipitemId</td>
+<td>required</td>
+<td>The id of the item.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_5b78ba599694ae99d8d42c8ccd7c21e3 -->
+<!-- START_0ae0968577cd66d1e3e47ad7a83aceee -->
+<h2>Get all items from a order by orderId</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Allows you to see all items from a order registered on the application by orderId</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/shipitems/orders/{orderId}" </code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/shipitems/orders/{orderId}",
+    "method": "GET",
+    "headers": {
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 1,
+    "title": "Title 1",
+    "note": "Note 1",
+    "quantity": 745,
+    "price": "123.45",
+    "created": "02\/11\/2018 03:23:21",
+    "updated": "02\/11\/2018 05:52:41",
+    "shiporder": "http:\/\/127.0.0.1\/api\/shiporder\/1"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/shipitems/orders/{orderId}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shiporderId</td>
+<td>required</td>
+<td>The id of the order.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_0ae0968577cd66d1e3e47ad7a83aceee -->
+<h1>Order Ships</h1>
+<p>Allows you to get ship info from orders</p>
+<!-- START_1972bb05375015c58fd0fee8f903b792 -->
+<h2>Get all ships</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Allows you to get a list of all ships registered on the application</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/shipto" </code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/shipto",
+    "method": "GET",
+    "headers": {
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 1,
+    "name": "Name 1",
+    "address": "Address 1",
+    "city": "City 1",
+    "country": "Country 1",
+    "created": "02\/11\/2018 03:23:21",
+    "updated": "02\/11\/2018 05:52:41",
+    "shiporder": "http:\/\/127.0.0.1\/api\/shiporder\/1"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/shipto</code></p>
+<!-- END_1972bb05375015c58fd0fee8f903b792 -->
+<!-- START_b1c19b60e2064e79ccd4d35deed3ce17 -->
+<h2>Get a ship by Id</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Allows you to see a ship registered on the application by it's Id</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/shipto/{shiptoId}" </code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/shipto/{shiptoId}",
+    "method": "GET",
+    "headers": {
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 1,
+    "name": "Name 1",
+    "address": "Address 1",
+    "city": "City 1",
+    "country": "Country 1",
+    "created": "02\/11\/2018 03:23:21",
+    "updated": "02\/11\/2018 05:52:41",
+    "shiporder": "http:\/\/127.0.0.1\/api\/shiporder\/1"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/shipto/{shiptoId}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shiptoId</td>
+<td>required</td>
+<td>The id of the item.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_b1c19b60e2064e79ccd4d35deed3ce17 -->
+<!-- START_a0419e90e795b27036a58a8b9e257ee0 -->
+<h2>Get all ships from a order by orderId</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Allows you to see all ships from a order registered on the application by orderId</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/shipto/orders/{orderId}" </code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/shipto/orders/{orderId}",
+    "method": "GET",
+    "headers": {
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 1,
+    "name": "Name 1",
+    "address": "Address 1",
+    "city": "City 1",
+    "country": "Country 1",
+    "created": "02\/11\/2018 03:23:21",
+    "updated": "02\/11\/2018 05:52:41",
+    "shiporder": "http:\/\/127.0.0.1\/api\/shiporder\/1"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/shipto/orders/{orderId}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shiporderId</td>
+<td>required</td>
+<td>The id of the order.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_a0419e90e795b27036a58a8b9e257ee0 -->
+<h1>Person</h1>
+<p>Allows you to get person info</p>
+<!-- START_f380b91d469dfe31cfef8686a40905ef -->
+<h2>Get all persons</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Allows you to get a list of all persons registered on the application</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/person" </code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/person",
+    "method": "GET",
+    "headers": {
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 1,
+    "personid": 1,
+    "personname": "Name 1",
+    "created": "02\/11\/2018 03:23:21",
+    "updated": "02\/11\/2018 05:52:40",
+    "phones": "http:\/\/127.0.0.1\/api\/phones\/person\/1",
+    "orders": "http:\/\/127.0.0.1\/api\/shiporder\/person\/1"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/person</code></p>
+<!-- END_f380b91d469dfe31cfef8686a40905ef -->
+<!-- START_c76c739a3d0a1f5bfc9ee99df29b8945 -->
+<h2>Get a person by Id</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Allows you to see a person registered on the application by it's Id</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/person/{personid}" </code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/person/{personid}",
+    "method": "GET",
+    "headers": {
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 1,
+    "personid": 1,
+    "personname": "Name 1",
+    "created": "02\/11\/2018 03:23:21",
+    "updated": "02\/11\/2018 05:52:40",
+    "phones": "http:\/\/127.0.0.1\/api\/phones\/person\/1",
+    "orders": "http:\/\/127.0.0.1\/api\/shiporder\/person\/1"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/person/{personid}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>personId</td>
+<td>required</td>
+<td>The id of the person.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_c76c739a3d0a1f5bfc9ee99df29b8945 -->
+<h1>Person Phones</h1>
+<p>Allows you to get phone info from persons</p>
+<!-- START_347b1754bf0773fb03abf5021bdb9691 -->
+<h2>Get all phones</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Allows you to get a list of all phones registered on the application</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/phones" </code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/phones",
+    "method": "GET",
+    "headers": {
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 1,
+    "phone": "2345678",
+    "created": "02\/11\/2018 03:23:21",
+    "updated": "02\/11\/2018 05:52:40",
+    "person": "http:\/\/127.0.0.1\/api\/person\/1"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/phones</code></p>
+<!-- END_347b1754bf0773fb03abf5021bdb9691 -->
+<!-- START_7804f684de40e0500e682223da6ac1af -->
+<h2>Get a phone by Id</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Allows you to see a phone registered on the application by it's Id</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/phones/{phoneId}" </code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/phones/{phoneId}",
+    "method": "GET",
+    "headers": {
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 1,
+    "phone": "2345678",
+    "created": "02\/11\/2018 03:23:21",
+    "updated": "02\/11\/2018 05:52:40",
+    "person": "http:\/\/127.0.0.1\/api\/person\/1"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/phones/{phoneId}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>phoneId</td>
+<td>required</td>
+<td>The id of the phone.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_7804f684de40e0500e682223da6ac1af -->
+<!-- START_7c5b02e97e19948c34b31d593d3274d4 -->
+<h2>Get all phones from a person by personId</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Allows you to see all phones from a person registered on the application by personId</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/phones/person/{personId}" </code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/phones/person/{personId}",
+    "method": "GET",
+    "headers": {
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 1,
+    "phone": "2345678",
+    "created": "02\/11\/2018 03:23:21",
+    "updated": "02\/11\/2018 05:52:40",
+    "person": "http:\/\/127.0.0.1\/api\/person\/1"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/phones/person/{personId}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>personId</td>
+<td>required</td>
+<td>The id of the person.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_7c5b02e97e19948c34b31d593d3274d4 -->
+      </div>
+      <div class="dark-box">
+                        <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                              </div>
+                </div>
+    </div>
+  </body>
+</html>
